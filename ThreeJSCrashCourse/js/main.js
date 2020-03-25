@@ -20,7 +20,7 @@ var controls = new Three.OrbitControls(camera,renderer.domElement);
 var geometry = new THREE.BoxGeometry(1, 1, 1);
 
 // create a material, color or image texture
-var material = new THREE.MeshBasicMaterial({color: 0xFFFFFF, wireframe: false});
+var material = new THREE.MeshBasicMaterial({color: 0xFFFFFF, wireframe: true});
 var cube = new THREE.Mesh(geometry, material);
 scene.add(cube);
 
