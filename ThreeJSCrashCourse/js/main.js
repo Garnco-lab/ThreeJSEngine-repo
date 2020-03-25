@@ -34,12 +34,19 @@ scene.add(cube);
 
 camera.position.z = 3;
 
-// Floor
+// floor
 var floorGeometry = new THREE.CubeGeometry(10, 1, 10);
 var floorMaterial = new THREE.MeshLambertMaterial({map: new THREE.TextureLoader().load('img/cube1.png'), side: THREE.DoubleSide});
 var FloorCube = new THREE.Mesh(floorGeometry, floorMaterial);
 FloorCube.position.y = -5
 scene.add(FloorCube);
+
+// ceiling
+var ceilingGeometry = new THREE.CubeGeometry(10, 1, 10);
+var ceilingMaterial = new THREE.MeshLambertMaterial({map: new THREE.TextureLoader().load('img/cube1.png'), side: THREE.DoubleSide});
+var ceilingCube = new THREE.Mesh(ceilingGeometry, ceilingMaterial);
+ceilingCube.position.y = 5
+scene.add(ceilingCube);
 
 var ambientLight = new THREE.AmbientLight(0xFFFFFF, 1.5);
 scene.add(ambientLight);
