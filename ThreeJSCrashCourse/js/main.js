@@ -29,14 +29,17 @@ var cubeMaterials =
 ]
 
 // create a material, color or image texture
-var material = new THREE.MeshFaceMaterial(cubeMaterials);
-var cube = new THREE.Mesh(geometry, material);
+var cube = new THREE.Mesh(geometry, cubeMaterials);
 scene.add(cube);
 
 camera.position.z = 3;
 
-//floor
+// Floor
 var floorGeometry = new THREE.CubeGeometry(10, 1, 10);
+var floorMaterial = new THREE.MeshLambertMaterial({map: new THREE.TextureLoader().load('img/cube1.png'), side: THREE.DoubleSide});
+var FloorCube = new THREE.Mesh(floorGeometry, floorMaterial);
+FloorCube.position.y = -5
+scene.add(FloorCube);
 
 var ambientLight = new THREE.AmbientLight(0xFFFFFF, 1.5);
 scene.add(ambientLight);
