@@ -86,7 +86,7 @@ scene.add(light3);
 // directionalLight.position.set(0, 1, 0);
 // scene.add(directionalLight);
 
-//
+// adding spot light
 var spotLight = new THREE.SpotLight(0xFF45F6, 1);
 spotLight.position.set(0, 3, 0);
 scene.add(spotLight);
