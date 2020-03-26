@@ -16,6 +16,10 @@ window.addEventListener( 'resize', function()
 
 var controls = new THREE.OrbitControls(camera,renderer.domElement);
 
+// create the texture reference
+
+var tileTexture = new THREE.TextureLoader().load('img/cube1.png')
+
 // create the shape
 var geometry = new THREE.BoxGeometry(1, 1, 1);
 var cubeMaterials = 
@@ -36,17 +40,31 @@ camera.position.z = 3;
 
 // floor
 var floorGeometry = new THREE.CubeGeometry(10, 1, 10);
-var floorMaterial = new THREE.MeshLambertMaterial({map: new THREE.TextureLoader().load('img/cube1.png'), side: THREE.DoubleSide});
+var floorMaterial = new THREE.MeshLambertMaterial({map: tileTexture, side: THREE.DoubleSide});
 var FloorCube = new THREE.Mesh(floorGeometry, floorMaterial);
-FloorCube.position.y = -5
+FloorCube.position.y = -5;
 scene.add(FloorCube);
 
 // ceiling
 var ceilingGeometry = new THREE.CubeGeometry(10, 1, 10);
-var ceilingMaterial = new THREE.MeshLambertMaterial({map: new THREE.TextureLoader().load('img/cube1.png'), side: THREE.DoubleSide});
+var ceilingMaterial = new THREE.MeshLambertMaterial({map: tileTexture, side: THREE.DoubleSide});
 var ceilingCube = new THREE.Mesh(ceilingGeometry, ceilingMaterial);
-ceilingCube.position.y = 5
+ceilingCube.position.y = 5;
 scene.add(ceilingCube);
+
+// left wall
+var leftWallGeometry = new THREE.CubeGeometry(1, 10, 10);
+var leftWallMaterial = new THREE.MeshLambertMaterial({map: tileTexture, side: THREE.DoubleSide});
+var leftWallCube = new THREE.Mesh(leftWallGeometry, leftWallMaterial);
+leftWallCube.position.x = -5;
+scene.add(leftWallCube);
+
+// right wall
+var rightWallGeometry = new THREE.CubeGeometry(1, 10, 10);
+var rightWallMaterial = new THREE.MeshLambertMaterial({map: tileTexture, side: THREE.DoubleSide});
+var rightWallCube = new THREE.Mesh(rightWallGeometry, rightWallMaterial);
+rightWallCube.position.x = 5;
+scene.add(rightWallCube);
 
 var ambientLight = new THREE.AmbientLight(0xFFFFFF, 1.5);
 scene.add(ambientLight);
