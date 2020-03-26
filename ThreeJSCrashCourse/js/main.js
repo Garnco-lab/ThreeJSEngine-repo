@@ -16,6 +16,8 @@ window.addEventListener( 'resize', function()
 
 var controls = new THREE.OrbitControls(camera,renderer.domElement);
 
+var loader = new THREE.FBXLoader();
+
 // create the texture reference
 
 var tileTexture = new THREE.TextureLoader().load('img/cube1.png')
