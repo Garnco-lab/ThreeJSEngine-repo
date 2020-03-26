@@ -1,7 +1,11 @@
+// mr doobs fps tracker
 (function(){var script=document.createElement('script');script.onload=function(){var stats=new Stats();document.body.appendChild(stats.dom);requestAnimationFrame(function loop(){stats.update();requestAnimationFrame(loop)});};script.src='//mrdoob.github.io/stats.js/build/stats.min.js';document.head.appendChild(script);})()
+
+// create scene and camera
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
+// start renderer for scene
 var renderer = new THREE.WebGLRenderer({antialias: true});
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
@@ -15,6 +19,7 @@ window.addEventListener( 'resize', function()
     camera.updateProjectionMatrix();
 });
 
+// call orbit controls into scene
 var controls = new THREE.OrbitControls(camera,renderer.domElement);
 
 // import can model
