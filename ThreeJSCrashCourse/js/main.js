@@ -22,14 +22,15 @@ var tileTexture = new THREE.TextureLoader().load('img/cube1.png')
 
 // create the shape
 var geometry = new THREE.BoxGeometry(1, 1, 1);
+// create materials
 var cubeMaterials = 
 [
     new THREE.MeshLambertMaterial({map: tileTexture, side: THREE.DoubleSide}), // Right side
-    new THREE.MeshPhongMaterial({map: new THREE.TextureLoader().load('img/cube1.png'), side: THREE.DoubleSide}), // Left Side
-    new THREE.MeshLambertMaterial({map: new THREE.TextureLoader().load('img/cube1.png'), side: THREE.DoubleSide}), // Top Side
-    new THREE.MeshPhongMaterial({map: new THREE.TextureLoader().load('img/cube1.png'), side: THREE.DoubleSide}), // Bottom Side
-    new THREE.MeshLambertMaterial({map: new THREE.TextureLoader().load('img/cube1.png'), side: THREE.DoubleSide}), // Front side
-    new THREE.MeshBasicMaterial({map: new THREE.TextureLoader().load('img/cube1.png'), side: THREE.DoubleSide}), // Back side
+    new THREE.MeshPhongMaterial({map: tileTexture, side: THREE.DoubleSide}), // Left Side
+    new THREE.MeshLambertMaterial({map: tileTexture, side: THREE.DoubleSide}), // Top Side
+    new THREE.MeshPhongMaterial({map: tileTexture, side: THREE.DoubleSide}), // Bottom Side
+    new THREE.MeshLambertMaterial({map: tileTexture, side: THREE.DoubleSide}), // Front side
+    new THREE.MeshBasicMaterial({map: tileTexture, side: THREE.DoubleSide}), // Back side
 ]
 
 // create a material, color or image texture
