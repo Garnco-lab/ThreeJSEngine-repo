@@ -16,7 +16,20 @@ window.addEventListener( 'resize', function()
 
 var controls = new THREE.OrbitControls(camera,renderer.domElement);
 
+// import can model
 var loader = new THREE.FBXLoader();
+
+loader.load
+(
+    'models/finalcan.fbx',
+
+    function(object)
+    {
+        var myCanModel = object;
+        myCanModel.position.x = 400;
+        scene.add(object);
+    }
+);
 
 // create the texture reference
 
@@ -94,7 +107,7 @@ spotLight.position.set(0, 3, 0);
 scene.add(spotLight);
 
 // game logic
-var update = function ( )
+var update = function()
 {
     // rotate cube
     cube.rotation.x += 0.01;
