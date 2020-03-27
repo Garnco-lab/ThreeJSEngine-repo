@@ -19,6 +19,10 @@ window.addEventListener( 'resize', function()
     camera.updateProjectionMatrix();
 });
 
+// add anaglyph effect
+var effect = new THREE.AnaglyphEffect(renderer);
+effect.setSize
+
 // call orbit controls into scene
 var controls = new THREE.OrbitControls(camera,renderer.domElement);
 
@@ -139,7 +143,7 @@ var update = function()
 // draw scene
 var render = function()
 {
-    renderer.render(scene,camera);
+    effect.render(scene,camera);
 };
 
 // run game loop (update, render, repeat)
