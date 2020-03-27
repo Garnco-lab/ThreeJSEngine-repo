@@ -19,12 +19,11 @@ window.addEventListener( 'resize', function()
     camera.updateProjectionMatrix();
 });
 
-// add anaglyph effect
-var effect = new THREE.AnaglyphEffect(renderer);
-effect.setSize
-
 // call orbit controls into scene
 var controls = new THREE.OrbitControls(camera,renderer.domElement);
+
+// change camera position
+camera.position.z = 3;
 
 // import can model
 var loader = new THREE.FBXLoader();
@@ -61,8 +60,6 @@ var cubeMaterials =
 // create a material, color or image texture
 var cube = new THREE.Mesh(geometry, cubeMaterials);
 scene.add(cube);
-
-camera.position.z = 3;
 
 // floor
 var floorGeometry = new THREE.CubeGeometry(10, 1, 10);
@@ -143,7 +140,7 @@ var update = function()
 // draw scene
 var render = function()
 {
-    effect.render(scene,camera);
+    renderer.render(scene,camera);
 };
 
 // run game loop (update, render, repeat)
