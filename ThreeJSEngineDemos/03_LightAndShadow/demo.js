@@ -46,7 +46,7 @@ function init()
     // camera code
 
     camera.position.set(0,player.height,-5);
-    camera.lookAt(new THREE.Vector3(0,0,0));
+    camera.lookAt(new THREE.Vector3(0,player.height,0));
 
     //renderer code
 
