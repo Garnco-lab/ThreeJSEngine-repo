@@ -4,6 +4,9 @@ var meshFloor, ambientLight, light;
 var keyboard = {};
 var player = {height:1.8, speed:0.2, turnSpeed:Math.PI*0.02};
 var USE_WIREFRAME = false;
+var USE_ANTIALIAS = true;
+
+// initialize scene
 
 function init()
 {
@@ -12,7 +15,7 @@ function init()
 
     mesh = new THREE.Mesh(
         new THREE.BoxGeometry(1,1,1),
-        new THREE.MeshBasicMaterial({color:0xff4444, wireframe:USE_WIREFRAME})
+        new THREE.MeshPhongMaterial({color:0xff4444, wireframe:USE_WIREFRAME})
     );
     mesh.position.y += 1;
     mesh.receiveShadow = true;
@@ -34,18 +37,24 @@ function init()
     light.position.set(-3,6,-3);
     light.castShadow = true;
 
+    light.shadow.mapSize.width = 1024;
+    light.shadow.mapSize.height = 1024;
     light.shadow.camera.near = 0.1;
     light.shadow.camera.far = 25;
     scene.add(light);
 
-    camera.position.set(0,0,-5);
+    // camera code
+
+    camera.position.set(0,player.height,-5);
     camera.lookAt(new THREE.Vector3(0,0,0));
 
-    renderer = new THREE.WebGLRenderer();
+    //renderer code
+
+    renderer = new THREE.WebGLRenderer({antialias: USE_ANTIALIAS});
     renderer.setSize(1280, 720);
 
     renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = THREE.BasicShadowMap;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
     document.body.appendChild(renderer.domElement);
 
@@ -93,6 +102,8 @@ function keyDown(event){
 function keyUp(event){
     keyboard[event.keyCode] = false;
 }
+
+// launch game
 
 window.addEventListener('keydown', keyDown);
 window.addEventListener('keyup', keyUp);
