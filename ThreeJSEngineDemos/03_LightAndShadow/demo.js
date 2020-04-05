@@ -8,8 +8,7 @@ var USE_ANTIALIAS = true;
 
 // initialize scene
 
-function init()
-{
+function init(){
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(90, 1280/720, 0.1, 1000);
 
@@ -61,8 +60,7 @@ function init()
     animate();
 }
 
-function animate()
-{
+function animate(){
     requestAnimationFrame(animate);
 
     mesh.rotation.x += 0.01;
@@ -110,8 +108,7 @@ window.addEventListener('keyup', keyUp);
 
 window.onload = init;
 
-window.addEventListener('resize', function()
-{
+window.addEventListener('resize', function(){
     var width = window.innerWidth;
     var height = window.innerHeight;
     renderer.setSize(width,height);
